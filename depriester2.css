@@ -1,0 +1,251 @@
+body { 
+    text-align: center; 
+    margin: 0; 
+    padding: 2rem 0; 
+    background-color: #f0f0f0; 
+    font-family: sans-serif; 
+    overflow-x: hidden; 
+}
+.converters-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 1rem; 
+    margin-bottom: 1rem; 
+    flex-wrap: wrap; 
+}
+.panel { 
+    display: inline-flex; 
+    gap: 1rem; 
+    align-items: center; 
+    padding: 10px 15px; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+.panel.main-controls { 
+    margin-bottom: 1rem; 
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.panel label { 
+    font-weight: bold; 
+}
+.panel input, .panel select { 
+    width: 80px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 1em; 
+}
+
+#kValuesContainer {
+    padding: 15px;
+    margin: 1rem auto;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.k-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px 20px;
+}
+.k-value-item { 
+    display: grid; 
+    grid-template-columns: auto 1fr auto auto; 
+    gap: 10px; 
+    align-items: center; 
+    border-bottom: 1px solid #eee; 
+    padding: 5px 0; 
+}
+.k-value-item label { 
+    font-weight: bold; 
+    text-align: left; 
+    cursor: pointer; 
+}
+.k-value-item span { 
+    font-weight: bold; 
+    color: #d9534f; 
+    min-width: 60px; 
+    text-align: right; 
+}
+.concentration-input {
+    width: 60px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: right;
+}
+
+#kValueSumContainer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #337ab7;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+.sum-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sum-item label { 
+    font-weight: bold; 
+    color: #333;
+    font-size: 0.9em;
+}
+.sum-item span { 
+    font-weight: bold; 
+    color: #337ab7;
+    font-size: 1.2em;
+}
+
+.canvas-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#chartCanvas {
+    max-width: 100%;
+    height: auto;
+    cursor: default;
+}
+
+/* --- Estilos para Cálculo Flash Añadidos --- */
+.flash-calculation-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #5cb85c;
+}
+
+#calculateFlashBtn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+#calculateFlashBtn:hover {
+    background-color: #4cae4c;
+}
+
+.options-container {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#flashResultsContainer {
+    margin-top: 15px;
+    text-align: left;
+}
+
+#flashResultsContainer h3, #flashResultsContainer h4 {
+    text-align: center;
+    color: #333;
+}
+
+.flow-results {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+    max-width: 600px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.results-table, .iterations-table {
+    width: 100%;
+    max-width: 600px;
+    margin: 15px auto;
+    border-collapse: collapse;
+}
+
+.results-table th, .results-table td, .iterations-table th, .iterations-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.results-table thead, .iterations-table thead {
+    background-color: #f2f2f2;
+}
+.results-table tfoot {
+    font-weight: bold;
+}
+
+.result-state {
+    text-align: center;
+    font-size: 1.1em;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+}
+
+.error, .warning {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.error { background-color: #f2dede; border: 1px solid #ebccd1; color: #a94442; }
+.warning { background-color: #fcf8e3; border: 1px solid #faebcc; color: #8a6d3b; }
+
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+    body { 
+        padding: 1rem 0; 
+    }
+    .converters-container, .panel.main-controls {
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .panel {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+    }
+    .panel > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    .panel input, .panel select {
+        width: 50%;
+        padding: 8px;
+    }
+    #kValuesContainer {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .k-values-grid {
+        grid-template-columns: 1fr;
+    }
+    .flow-results {
+        flex-direction: column;
+        align-items: center;
+    }
+}

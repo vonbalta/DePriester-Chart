@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagrama de De Priester</title>
+    <link rel="stylesheet" href="depriester2.css">
+</head>
+<body>
+    <div class="converters-container">
+        <div class="panel">
+            <label for="pressureValueInput">Conversor P:</label>
+            <input type="number" id="pressureValueInput" placeholder="Valor">
+            <select id="pressureUnitSelector">
+                <option value="psi">psi</option>
+                <option value="atm">atm</option>
+                <option value="bar">bar</option>
+                <option value="kg/cm²">kg/cm²</option>
+            </select>
+        </div>
+        <div class="panel">
+            <label for="tempValueInput">Conversor T:</label>
+            <input type="number" id="tempValueInput" placeholder="Valor">
+            <select id="tempUnitSelector">
+                <option value="F">°F</option>
+                <option value="K">K</option>
+                <option value="R">°R</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="panel main-controls">
+        <div><label for="pressureInput">Presión (kPa):</label><input type="number" id="pressureInput" step="10"></div>
+        <div><label for="tempInput">Temperatura (°C):</label><input type="number" id="tempInput" step="1"></div>
+        <div><label for="feedFlowInput">Flujo (F):</label><input type="number" id="feedFlowInput" step="1" value="100"></div>
+    </div>
+    
+    <div id="kValuesContainer">
+        <div class="k-values-grid"></div>
+        <div id="kValueSumContainer">
+            <div class="sum-item">
+                <label>Punto de Burbuja (Σ K * z):</label>
+                <span id="bubblePointSum">-</span>
+            </div>
+            <div class="sum-item">
+                <label>Punto de Rocío (Σ z / K):</label>
+                <span id="dewPointSum">-</span>
+            </div>
+        </div>
+        <div class="flash-calculation-container">
+            <button id="calculateFlashBtn">Calcular Flash (Newton-Raphson)</button>
+            <div class="options-container">
+                <input type="checkbox" id="showIterationsCheck">
+                <label for="showIterationsCheck">Mostrar iteraciones</label>
+            </div>
+            <div id="flashResultsContainer">
+                <h3>Resultados del Cálculo Flash</h3>
+                <div id="flashResultsOutput">Selecciona componentes, introduce sus concentraciones y pulsa "Calcular Flash".</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="chartCanvas"></canvas>
+    </div>
+
+    <script src="depriester2.js"></script>
+</body>
+</html>
